@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator.Lib", "StringCalculator.Lib\StringCalculator.Lib.csproj", "{20EB8EEA-0E69-44ED-AC27-2EA38B0002CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20EB8EEA-0E69-44ED-AC27-2EA38B0002CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EB8EEA-0E69-44ED-AC27-2EA38B0002CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EB8EEA-0E69-44ED-AC27-2EA38B0002CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EB8EEA-0E69-44ED-AC27-2EA38B0002CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB65E15C-055B-45CB-8B3A-0BE476B620C7}
+	EndGlobalSection
+EndGlobal
