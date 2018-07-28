@@ -4,31 +4,29 @@ using System.Runtime.Serialization;
 
 namespace StringCalculator.Lib
 {
-    public partial class Calculator
+    public class Calculator
     {
         private const int DefaultValue = 0;
-        private readonly NumberParser _numberParser;
+
+        private INumberParser _numberParser;
         private IDelimiterParser _delimiterParser;
         private readonly INumberValidator _validator;
 
-        public Calculator(
-            NumberParser numberParser,
-            INumberValidator validator
-            )
+        public Calculator(INumberValidator validator)
         {
-            _numberParser = numberParser;
             _validator = validator;
         }
 
         public int Add(string input)
         {
-            var customMarker = input.StartsWith("//");
-            _delimiterParser = DelimiterParserFactory.Create(customMarker);
-
             if (input.Length == 0)
             {
                 return DefaultValue;
             }
+
+            var customMarker = input.StartsWith("//");
+            _delimiterParser = DelimiterParserFactory.Create(customMarker);
+            _numberParser = NumberParserFactory.Create(customMarker);
 
             var delimiters = _delimiterParser.Parse(input);
 

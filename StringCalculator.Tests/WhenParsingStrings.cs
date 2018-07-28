@@ -64,7 +64,7 @@ namespace StringCalculator.Tests
 
         private static Calculator MakeCalculator()
         {
-            return new Calculator(new NumberParser(), new PositiveNumberValidator());
+            return new Calculator(new PositiveNumberValidator());
         }
     }
 }
