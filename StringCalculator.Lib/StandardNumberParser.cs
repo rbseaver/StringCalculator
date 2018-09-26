@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace StringCalculator.Lib
@@ -7,9 +6,16 @@ namespace StringCalculator.Lib
 
     public class StandardNumberParser : INumberParser
     {
-        public IEnumerable<int> Parse(string input, char[] possibleDelimiters)
+        private IEnumerable<char> delimiters = new char[]
         {
-            return input.Split(possibleDelimiters)
+            ',',
+            '\n'
+        };
+
+        public IEnumerable<int> Parse(string input)
+        {
+            return input
+                .Split(delimiters.ToArray())
                 .Select(x => int.Parse(x));
         }
     }

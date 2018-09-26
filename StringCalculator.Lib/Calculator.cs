@@ -1,38 +1,26 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Linq;
 
 namespace StringCalculator.Lib
 {
-    public class Calculator
+    public partial class Calculator
     {
-        private const int DefaultValue = 0;
+        private INumberParser parser;
+        private INumberValidator numberValidator;
+        private readonly IParserFactory parserFactory;
 
-        private INumberParser _numberParser;
-        private IDelimiterParser _delimiterParser;
-        private readonly INumberValidator _validator;
-
-        public Calculator(INumberValidator validator)
+        public Calculator(IParserFactory parserFactory, INumberValidator numberValidator)
         {
-            _validator = validator;
+            this.numberValidator = numberValidator;
+            this.parserFactory = parserFactory;
         }
 
         public int Add(string input)
         {
-            if (input.Length == 0)
-            {
-                return DefaultValue;
-            }
+            parser = parserFactory.Create(input);
 
-            var customMarker = input.StartsWith("//");
-            _delimiterParser = DelimiterParserFactory.Create(customMarker);
-            _numberParser = NumberParserFactory.Create(customMarker);
+            var numbers = parser.Parse(input);
 
-            var delimiters = _delimiterParser.Parse(input);
-
-            var numbers = _numberParser.Parse(input, delimiters);
-
-            _validator.Validate(numbers);
+            numberValidator.Validate(numbers);
 
             return numbers.Sum();
         }

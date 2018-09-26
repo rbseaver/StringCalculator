@@ -7,15 +7,10 @@ namespace StringCalculator.Lib
     {
         public void Validate(IEnumerable<int> numbers)
         {
-            var hasNegatives = numbers.Any(x => x < 0);
-
-            if (hasNegatives)
+            if (numbers.Any(x => x < 0))
             {
-                var negativeResults = string.Join(", ", numbers.Where(x => x < 0)
-                    .Select(n => n.ToString())
-                    .ToArray());
-
-                throw new NumberFormatException($"Negatives not allowed: {negativeResults}");
+                var negatives = numbers.Where(x => x < 0);
+                throw new NumberTypeException("Negatives not allowed: " + string.Join(",", negatives.ToArray()));
             }
         }
     }
