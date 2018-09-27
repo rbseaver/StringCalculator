@@ -85,6 +85,18 @@ namespace StringCalculator.Tests
             Assert.AreEqual(expected, result);
         }
 
+        [TestMethod]
+        [DataRow("//[***]\n1***2***3", 6)]
+        [DataRow("//[!!!!!!]\n1!!!!!!2!!!!!!3", 6)]
+        public void ItShouldAcceptMultipleDelimiters(string input, int expected)
+        {
+            var calculator = InitializeCalculator();
+
+            var result = calculator.Add(input);
+
+            Assert.AreEqual(expected, result);
+        }
+
         private Calculator InitializeCalculator()
         {
             return new Calculator(new ParserFactory(), new PositiveNumberValidator());

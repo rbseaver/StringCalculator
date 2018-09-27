@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace StringCalculator.Lib
 {
-    public class ExplicitDelimiterParser : INumberParser
+    public class ExplicitDelimiterNumberParser : INumberParser
     {
         private const int DelimiterPosition = 2;
         private const int NumberStartIndex = 4;

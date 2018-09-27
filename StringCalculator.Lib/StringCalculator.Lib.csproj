@@ -42,10 +42,11 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="EmptyNumberParser.cs" />
-    <Compile Include="ExplicitDelimiterParser.cs" />
+    <Compile Include="ExplicitDelimiterNumberParser.cs" />
     <Compile Include="INumberParser.cs" />
     <Compile Include="INumberValidator.cs" />
     <Compile Include="IParserFactory.cs" />
+    <Compile Include="MultipleDelimiterNumberParser.cs" />
     <Compile Include="NumberTypeException.cs" />
     <Compile Include="ParserFactory.cs" />
     <Compile Include="PositiveNumberValidator.cs" />
