@@ -3,7 +3,6 @@ using System.Linq;
 
 namespace StringCalculator.Lib
 {
-
     public class ExplicitDelimiterParser : INumberParser
     {
         public IEnumerable<int> Parse(string input)

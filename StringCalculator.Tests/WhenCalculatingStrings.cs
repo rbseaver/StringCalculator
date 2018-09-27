@@ -73,6 +73,18 @@ namespace StringCalculator.Tests
             Assert.AreEqual("Negatives not allowed: -2,-3", exception.Message);
         }
 
+        [TestMethod]
+        [DataRow("1,2,1001,3", 6)]
+        [DataRow("//;\n1;2;1001;3", 6)]
+        public void ItShouldIgnoreNumbersOverOneThousand(string input, int expected)
+        {
+            var calculator = InitializeCalculator();
+
+            var result = calculator.Add(input);
+
+            Assert.AreEqual(expected, result);
+        }
+
         private Calculator InitializeCalculator()
         {
             return new Calculator(new ParserFactory(), new PositiveNumberValidator());
