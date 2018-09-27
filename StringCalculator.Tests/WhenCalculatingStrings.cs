@@ -88,6 +88,7 @@ namespace StringCalculator.Tests
         [TestMethod]
         [DataRow("//[***]\n1***2***3", 6)]
         [DataRow("//[!!!!!!]\n1!!!!!!2!!!!!!3", 6)]
+        [DataRow("//[!!~!!!]\n1!!~!!!2!!~!!!3", 6)]
         public void ItShouldAcceptMultipleDelimiters(string input, int expected)
         {
             var calculator = InitializeCalculator();
@@ -99,7 +100,9 @@ namespace StringCalculator.Tests
 
         private Calculator InitializeCalculator()
         {
-            return new Calculator(new ParserFactory(), new PositiveNumberValidator());
+            return new Calculator(
+                new ParserFactory(),
+                new PositiveNumberValidator());
         }
     }
 }
