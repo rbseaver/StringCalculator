@@ -5,11 +5,14 @@ namespace StringCalculator.Lib
 {
     public class ExplicitDelimiterParser : INumberParser
     {
+        private const int DelimiterPosition = 2;
+        private const int NumberStartIndex = 4;
+
         public IEnumerable<int> Parse(string input)
         {
-            var delimiter = input[2];
+            var delimiter = input[DelimiterPosition];
 
-            return input.Substring(4)
+            return input.Substring(NumberStartIndex)
                 .Split(delimiter)
                 .Select(x => int.Parse(x));
         }
