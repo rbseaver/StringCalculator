@@ -4,9 +4,13 @@
     {
         public INumberParser Create(string input)
         {
-            if (input.StartsWith("//["))
+            if (input.IndexOf("][") > 0)
             {
-                return new MultipleDelimiterNumberParser();
+                return new MultipleDelimiterParser();
+            }
+            else if (input.StartsWith("//["))
+            {
+                return new VariableLengthDelimiterNumberParser();
             }
             else if (input.StartsWith("//"))
             {

@@ -46,12 +46,13 @@
     <Compile Include="INumberParser.cs" />
     <Compile Include="INumberValidator.cs" />
     <Compile Include="IParserFactory.cs" />
-    <Compile Include="MultipleDelimiterNumberParser.cs" />
+    <Compile Include="MultipleDelimiterParser.cs" />
     <Compile Include="NumberTypeException.cs" />
     <Compile Include="ParserFactory.cs" />
     <Compile Include="PositiveNumberValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StandardNumberParser.cs" />
+    <Compile Include="VariableLengthDelimiterNumberParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

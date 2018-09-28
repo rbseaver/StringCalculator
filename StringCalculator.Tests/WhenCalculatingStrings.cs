@@ -89,6 +89,18 @@ namespace StringCalculator.Tests
         [DataRow("//[***]\n1***2***3", 6)]
         [DataRow("//[!!!!!!]\n1!!!!!!2!!!!!!3", 6)]
         [DataRow("//[!!~!!!]\n1!!~!!!2!!~!!!3", 6)]
+        public void ItShouldAcceptVariableLengthDelimiters(string input, int expected)
+        {
+            var calculator = InitializeCalculator();
+
+            var result = calculator.Add(input);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("//[*][%]\n1*2%3", 6)]
+        [DataRow("//[!][~]\n2!4~2", 8)]
         public void ItShouldAcceptMultipleDelimiters(string input, int expected)
         {
             var calculator = InitializeCalculator();

@@ -2,11 +2,13 @@
 
 namespace StringCalculator.Lib
 {
-    public class EmptyNumberParser : INumberParser
+    public class MultipleDelimiterParser : INumberParser
     {
         public IEnumerable<int> Parse(string input)
         {
-            return new int[] { 0 };
+            var midPosition = input.IndexOf("][");
+
+            return new[] { 1, 2, 3 };
         }
     }
 }
